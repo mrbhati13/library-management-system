@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Collage Registration</h2>
+                    <span class="underline center"></span>
+                    <p class="lead"></p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>Register</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+
+
+        <!-- Start: Cart Section -->
+                <main id="main" class="site-main">
+                    <div class="signin-main">
+                        <div class="container">
+                            <div class="woocommerce">
+                                <div class="woocommerce-login">
+                                    <div class="company-info signin-register">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6 col-md-offset-1 border-dark-left">
+                                          <form action="" method="post">
+                                            {% csrf_token %}
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="company-detail bg-dark margin-left">
+                                                            <p class="form-row form-row-first input-required">
+                                                              <input type="email"  id="email" name="email" class="input-text" value="{{request.session.context.email}}" hidden>
+                                                             </p>
+                                                            <p class="form-row form-row-last input-required"><span class="text-primary">Date of Birth</span>
+                                                              <input type="date" id="password" name="dob" class="input-text" placeholder="First Name">
+                                                            </p>
+                                                            {% if request.session.context.type == "STUDENT" %}
+                                                            <p class="form-row form-row-last input-required">
+                                                              <input type="text" id="password" name="student_class" class="input-text" placeholder="Your Class">
+                                                            </p>
+                                                            {% else %}
+                                                            <p class="form-row form-row-last input-required">
+                                                              <input type="text" id="password" name="dept" class="input-text" placeholder="Your Department">
+                                                            </p>
+                                                            {% endif %}
+                                                            <p class="form-row form-row-first input-required">
+                                                              <textarea name="address" id="" cols="0" rows="0" class="form-control bg-dark" placeholder="Your Address"></textarea>
+                                                            </p>
+                                                            <p class="form-row form-row-last input-required">
+                                                              <input type="file" id="password" name="profile_pic" class="input-text">
+                                                            </p>
+                                                            <div class="control-group">
+                                                              <select name="gender" id="" class="form-control">
+                                                                <option>=============select=============</option>
+                                                                <option value="Male">Male</option>
+                                                                <option value="Female">Female</option>
+                                                              </select>
+                                                          </div>
+                                                              <div class="clear"></div><br>
+                                                      <input type="submit" value="Register" class="button btn btn-default">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+        <!-- End: Cart Section -->
+        
+        <!-- Start: Social Network -->
+        <section class="social-network section-padding">
+            <div class="container">
+                <div class="center-content">
+                    <h2 class="section-title">Follow Us</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <ul>
+                    <li>
+                        <a class="facebook" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="google" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="rss" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- End: Social Network -->
+{% endblock %}
